@@ -39,7 +39,7 @@ const Signup = () => {
 
             <div className="flex flex-col w-[350px] h-fit gap-3 bg-gray-600 p-5 rounded">
                 <h1 className="text-xl font-bold text-center">{
-                    loading ? <span className="loader"></span> : "Sign Up"}</h1>
+                    loading ? <span className="loader2"></span> : "Sign Up"}</h1>
                 <div className="flex flex-col">
                     <input
                         type="text"

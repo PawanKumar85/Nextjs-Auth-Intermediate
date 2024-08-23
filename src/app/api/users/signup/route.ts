@@ -2,6 +2,7 @@ import connectDB from "@/config/database";
 import User from "@/models/user.model";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
+import { sendEmail } from "@/utils/mailer";
 
 connectDB();
 
@@ -32,6 +33,12 @@ export async function POST(request: NextRequest) {
     });
 
     const saved = await newUser.save();
+
+    await sendEmail({
+      email,
+      emailType: "VERIFY",
+      userId: saved._id,
+    });
 
     return NextResponse.json(
       {
